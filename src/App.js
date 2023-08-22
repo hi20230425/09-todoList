@@ -19,7 +19,7 @@ const mockDate = [
   }, 
   {
     id : 1,
-    isDone : false, 
+    isDone : true, 
     content: "노래 연습하기", 
     createDate : new Date().getDate()
   },
@@ -27,9 +27,13 @@ const mockDate = [
     id : 2,
     isDone : false, 
     content: "빨래 널기", 
-    createDate : new Date().getDate()
+    createDate : new Date().getTime()
   }
 ]
+
+// new Date().getDate() : UNIX 표준시 1970.1.1 
+// new Date().getTime() : 현재 시스템의 날짜  
+    // 
 
 
 function App() {
@@ -69,7 +73,7 @@ function App() {
           // it.id 와 targetID 가 같은 값을 찾아서 isDone 필드의 값을 수정 
           //   === : 값과 타입이 모두 같을때 
           it.id === targetId ? { ...it, isDone : !it.isDone } : it 
-
+        
           )
       );
     };
